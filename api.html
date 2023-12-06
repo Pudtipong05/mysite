@@ -32,8 +32,31 @@
 <button onclick="myFunction()">Click me</button>
 
 
-  <!-- Project Section -->
- 
+  
+ <div class="api">
+        <h1>ดึงapi มาใช้ ตัวอย่าง</h1>
+        <h2>Click to change Api</h2>
+        <p id="demo2">Api</p>
+        <button onclick="myFunction()">Click me</button>        
+    </div>
+    <script>
+        
+  function myFunction() {
+    fetch("https://catfact.ninja/fact")
+      .then(function(response){
+        return response.json()
+      })
+      .then(function(data){
+        let txt = "";
+          for (let x in data) {
+            txt += data[x] + " ";
+          document.getElementById("demo2").innerHTML = txt;
+          };
+      
+        return data;
+      })  
+}
+    </script>
 
   <!-- About Section -->
  

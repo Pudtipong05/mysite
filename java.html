@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>My</b> Site</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="index.html" class="w3-bar-item w3-button">index</a>
+      <a href="java.html" class="w3-bar-item w3-button">java</a>
+      <a href="api.html" class="w3-bar-item w3-button">api</a>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <hr>
+  <h1>The document</h1>
+<h2>The gettt</h2>
+<p id="demo">Hi</p>
+
+<hr>
+<h2>click to change</h2>
+<p id="demo2">Hi</p>
+<button onclick="myFunction()">Click me</button>
+
+<hr>
+<h2>Cal</h2>
+
+<input type="text" id="numb" name="myTextBox" placeholder="พิมพ์ข้อความที่นี่">
+<button type="button" onclick="myFunction2()">Submit</button>
+<p id="demo3"></p>
+
+<hr>
+<h1>Fovorite Lap</h1>
+<hr>
+<div class="containerlab">
+  <label><strong>Lab 1 </strong></strong></label><button class="button button4" onclick="loginUser()">Login</button><label> <strong>User :</strong> admin <strong>Pass :</strong> 123456</label><br><hr>
+  <label><strong>Lab 2 </strong><button class="button button4" onclick="calculateSum()">Calculate Sum</button> <button class="button button4" onclick="calculateMul()"> Calculate Multiplication</button><br><hr>
+  <label><strong>Lab 3 </strong><button class="button button4" onclick="createObject()">Create Object</button><br><hr>
+  <label><strong>Lab 4 </strong><button class="button button4" onclick="convertDaysToSeconds()">Convert Days to Seconds</strong></button><br><hr>
+  <label><strong>Lab 5 </strong><button class="button button4" onclick="convertTemperature()">Convert Temperature</button><hr>
+  </div>
+  <!-- Project Section -->
+ 
+
+  <!-- About Section -->
+ 
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>by Pudtipong</p>
+</footer>
+
+<script>
+  //document.getElementById("demo").innerHTML = "Hello world";
+
+  
+function myFunction(){
+  document.getElementById("demo2").innerHTML = "Hello world";
+}
+
+function myFunction2(){
+  let x = document.getElementById("numb").value;
+  let text;
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not  valid";
+  } else {
+    text = "Input OK";
+  }
+    document.getElementById("demo3").innerHTML = text;
+}
+
+//Java Script LAB1
+function loginUser() {
+    var username = prompt('Enter your username');
+    var user;
+
+    if (username == "admin") {
+        let password = prompt('Enter password');
+        if (password == "123456") {
+            user = "Admim";
+        } else {
+            user = "Guest";
+        }
+    } else {
+        user = "Guest";
+    }
+
+    alert('Welcome ' + user);
+}
+//Java Script LAB2
+let calculator = {
+    read() {
+        this.a = prompt('Enter number 1');
+        this.b = prompt('Enter number 2');
+    },
+    sum() {
+        return Number(this.a) + Number(this.b);
+    },
+    mul() {
+        return this.a * this.b;
+    }
+};
+
+function calculateSum() {
+    calculator.read();
+    alert(calculator.sum());
+}
+
+function calculateMul() {
+    calculator.read();
+    alert(calculator.mul());
+}
+//Java Script LAB3
+var myObject = {};
+
+function createObject() {
+    var myObject = {}; // Ensure that myObject is declared before using it
+
+    while (true) {
+        var key = prompt("(Enter a fruit name or 'stop' to finish):");
+        if (key.toLowerCase() === 'stop') {
+            break;
+        }
+        var value = prompt("Enter value:");
+
+        if (value >= 2) {
+            let objective = key + 's';
+            myObject[objective] = value;
+        } else {
+            myObject[key] = value;
+        }
+    }
+
+    console.log(myObject);
+    alert("Object created. Check the console for details."); // Add an alert after logging to the console
+}
+//Java Script LAB4
+const daysToSeconds = days => days * 24 * 60 * 60;
+
+function convertDaysToSeconds() {
+    const numberOfDays = prompt("Enter the number of days:");
+    const seconds = daysToSeconds(numberOfDays);
+    
+    console.log(`${numberOfDays} days is equal to ${seconds} seconds`);
+    alert(`${numberOfDays} days is equal to ${seconds} seconds`);
+}
+//Java Script LAB5
+const fahrenheitToCelsius = fahrenheit => (fahrenheit - 32) * 5 / 9;
+
+function convertTemperature() {
+    const temperatureInFahrenheit = prompt("Enter temperature in Fahrenheit:");
+    const temperatureInCelsius = fahrenheitToCelsius(parseFloat(temperatureInFahrenheit));
+    alert(`${temperatureInFahrenheit} degrees Fahrenheit is equal to ${temperatureInCelsius.toFixed(2)} degrees Celsius`);
+}
+
+
+</script>
+</body>
+</html>
